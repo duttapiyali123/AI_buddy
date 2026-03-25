@@ -30,15 +30,21 @@ Structure:
 if st.button("Explain"):
     if topic:
         with st.spinner("Thinking... 🤔"):
-            response = client.chat.completions.create(
-                model="gpt-4o-mini",
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": f"Explain: {topic}"}
-                ]
-            )
+           result = f"""
+📘 What is {topic}?
+This is a simple explanation of {topic}.
 
-            result = response.choices[0].message.content
+🧠 Key Points:
+- It is an important concept
+- Used in studies and real life
+- Helps in understanding basics
+
+🌍 Example:
+Think of {topic} like something you use in daily life.
+
+📌 Summary:
+{topic} is easy when explained step by step.
+"""
 
             st.markdown("### 📖 Explanation:")
             st.write(result)
